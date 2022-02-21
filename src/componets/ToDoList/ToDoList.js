@@ -1,7 +1,7 @@
 export const ToDoList = () => {
   return (
     <div>
-      ToDoList
+      ToDoList //получить масивы из redux
     </div>
   )
 }
