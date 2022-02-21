@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
 
 export const AddCase = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const [arrList, setArrList] = useState([]);
   const handleSetValue = (event) => {
-    setValue (event.target.value)
+    setValue(event.target.value);
   };
 
   const handAddToDo = () => {
-    setArrList (prevState => [...prevState, value])
+    setArrList((prevState) => [...prevState, value]);
+  };
+
+  useEffect(() => {
+  }, [arrList]);
+
+  const clearList = () =>{
+    setArrList ([]) 
   }
 
-  useEffect (()=>{
-    console.log(arrList)
-  },[arrList] )
-
-  
   return (
     <div>
       <input
@@ -24,8 +26,10 @@ export const AddCase = () => {
         type="text"
         placeholder="Что нужно сделать?"
       />
-      <button class="save" onClick={ handAddToDo}>Добавить</button>
-      <button class="clear">Очистить</button>
+      <button class="save" onClick={handAddToDo}>
+        Добавить
+      </button>
+      <button class="clear" onClick={clearList}>Очистить</button>
       <button class="filter">Фильтр</button>
     </div>
   );
