@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AddToDo from "./AddToDo";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
+import EditToDo from './EditToDo';
 
 function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
   const [edit, setEdit] = useState({
@@ -18,7 +18,7 @@ function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
   };
 
   if (edit.id) {
-    return <AddToDo edit={edit} onSubmit={submitUpdate} />;
+    return <EditToDo edit={edit} onSubmit={submitUpdate} />;
   }
 
   return todos.map((todo, index) => (
