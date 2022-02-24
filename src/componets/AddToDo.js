@@ -13,9 +13,13 @@ function AddToDo(props) {
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: value,
-      status: true,
+      status: false,
     });
     setValue("");
+  };
+
+  const clearList = () => {
+    props.setArrlist([]);
   };
 
   return (
@@ -27,7 +31,15 @@ function AddToDo(props) {
         className="input"
         onChange={handleSetValue}
       />
-      <button className="save">Добавить</button>
+      <button className="save" type="submit">
+        Добавить
+      </button>
+      <button class="clear" type="button" onClick={clearList}>
+        Очистить
+      </button>
+      <button class="filter" type="button" onClick={props.swithcfilter}>
+        Фильтр
+      </button>
     </form>
   );
 }

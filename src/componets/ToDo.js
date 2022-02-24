@@ -9,6 +9,8 @@ function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
     value: "",
   });
 
+  
+
   const submitUpdate = (value) => {
     updateTodo(edit.id, value);
     setEdit({
@@ -23,7 +25,7 @@ function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
 
   return todos.map((todo, index) => (
     <div
-      className={todo.isComplete ? "todo-row complete" : "todo-row"}
+      className={todo.status ? "todo-row complete" : "todo-row"}
       key={index}
     >
       <div key={todo.id} onClick={() => comleteTodo(todo.id)}>

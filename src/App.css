@@ -1,0 +1,53 @@
+h1 {
+  color: blueviolet;
+  text-align: center;
+}
+
+.addtodo {
+  text-align: center;
+}
+
+.input {
+  background-color: cornsilk;
+}
+
+.save {
+  background-color: greenyellow;
+}
+
+.clear {
+  background-color: red;
+}
+
+.filter {
+  background-color: bisque;
+}
+
+.ToDo {
+  text-align: center;
+}
+
+.icons {
+  background-color: aqua;
+}
+
+.deletIcon {
+  background-color: turquoise;
+	position: relative;
+}
+
+.editIcon {
+  color: red;
+}
+
+.todo-row{
+  text-align: center;
+}
+
+.list-filter .complete {
+  display: none;
+}
+
+.complete {
+  text-decoration: line-through;
+}

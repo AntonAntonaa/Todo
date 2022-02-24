@@ -3,6 +3,7 @@ import AddToDo from "./AddToDo";
 import ToDo from "./ToDo";
 
 function ToDoList() {
+  const [filter, setFilter] = useState(false);
   const [todos, setTodos] = useState([]);
 
   const addDo = (todo) => {
@@ -29,7 +30,11 @@ function ToDoList() {
     setTodos(removeArr);
   };
 
-  const comleteTodo = (id) => { console.log(todos)
+  const swithcfilter = () => {
+    setFilter(!filter);
+  };
+
+  const comleteTodo = (id) => {
     let updateTodos = todos.map((todo) => {
       if (todo.id === id) {
         todo.status = !todo.status;
@@ -41,9 +46,13 @@ function ToDoList() {
   };
 
   return (
-    <div>
+    <div className={filter ? "list-filter" : ""}>
       <h1>Какие планы на сегодня?</h1>
-      <AddToDo onSubmit={addDo} />
+      <AddToDo
+        onSubmit={addDo}
+        setArrlist={setTodos}
+        swithcfilter={swithcfilter}
+      />
       <ToDo
         todos={todos}
         comleteTodo={comleteTodo}
