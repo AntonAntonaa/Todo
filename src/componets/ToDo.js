@@ -3,7 +3,7 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import EditToDo from './EditToDo';
 
-function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
+function ToDo({ todosRedux, comleteTodo, updateTodo, removeToDo }) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -21,7 +21,7 @@ function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
     return <EditToDo edit={edit} onSubmit={submitUpdate} />;
   }
 
-  return todos.map((todo, index) => (
+  return todosRedux.map((todo, index) => (
     <div className={todo.status ? "todo-row complete" : "todo-row"} key={index}>
       <div className="text" key={todo.id} onClick={() => comleteTodo(todo.id)}>
         {todo.text}
@@ -39,6 +39,6 @@ function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
       </div>
     </div>
   ));
-}
+} 
 
 export default ToDo;

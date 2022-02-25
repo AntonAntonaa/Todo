@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { addToDoRedux } from "../action.js/action";
+import { useDispatch } from "react-redux";
 
 function AddToDo(props) {
   const [value, setValue] = useState("");
+  const dispatch = useDispatch();
 
   const handleSetValue = (event) => {
     setValue(event.target.value);
@@ -16,10 +19,12 @@ function AddToDo(props) {
       status: false,
     });
     setValue("");
+    
   };
 
   const clearList = () => {
     props.setArrlist([]);
+    dispatch(addToDoRedux([]))
   };
 
   return (
