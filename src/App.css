@@ -1,54 +1,102 @@
 body {
-  background-color: aqua;
+  background-color: aliceblue;
 }
 
 h1 {
-  color: blueviolet;
+  color: darkkhaki;
   text-align: center;
+  font-size: 70px;
+}
+button {
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
 }
 
-.addtodo, .editToDo{
+button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.addtodo,
+.editToDo {
   text-align: center;
 }
 
 .input {
-  background-color: cornsilk;
+  background-color: #fafafa;
+  border-radius: 10px;
+  width: 200px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 5px 10px;
 }
 
 .save {
-  background-color: greenyellow;
+  background-color: #10893E;
+  height: 40px;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+
 }
 
 .clear {
-  background-color: red;
+  background-color: #ea005e;
+  margin-right: 25px;
+  margin-top: 10px;
+  border: none;
+  padding: 5px 10px;
+  color: white;
 }
 
 .filter {
-  background-color: bisque;
+  background-color: #3F51B5;
+  border: none;
+  padding: 5px 10px;
+  color: white;
 }
 
-.todo-row  {
+.deletIcon {
+  cursor: pointer;
+  margin-right: 5px;
+  margin-top: 5px;
+  color: #F44336;
+  width: 25px;
+  height: 25px;
+}
+
+.editIcon {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.todo-row {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  width: 300px;
+  height: auto;
+  word-break: break-word;
+  white-space: pre-line;
+  margin: auto;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 20px
+  font-size: 20px;
 }
 
-.deletIcon {
-  color: red;
-	width: 25px;
-  height: 25px;
-}
-
-.editIcon {
-  width: 25px;
-  height: 25px;
-}
-
-.todo-row{
+.todo-row .text {
+  flex: 1 1 auto;
   text-align: center;
+  cursor: pointer;
+}
+
+.todo-row .icons {
+  flex: 0 0 auto;
 }
 
 .list-filter .complete {
@@ -59,3 +107,11 @@ h1 {
   text-decoration: line-through;
 }
 
+.left {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #424242;
+
+}

@@ -23,18 +23,19 @@ function ToDo({ todos, comleteTodo, updateTodo, removeToDo }) {
 
   return todos.map((todo, index) => (
     <div className={todo.status ? "todo-row complete" : "todo-row"} key={index}>
-      <div key={todo.id} onClick={() => comleteTodo(todo.id)}>
+      <div className="text" key={todo.id} onClick={() => comleteTodo(todo.id)}>
         {todo.text}
       </div>
       <div className="icons">
+      <TiEdit
+          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          className="editIcon"
+        />
         <RiCloseCircleFill
           onClick={() => removeToDo(todo.id)}
           className="deletIcon"
         />
-        <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-          className="editIcon"
-        />
+        
       </div>
     </div>
   ));

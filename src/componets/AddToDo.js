@@ -34,12 +34,14 @@ function AddToDo(props) {
       <button className="save" type="submit">
         Добавить
       </button>
+      <div>
       <button class="clear" type="button" onClick={clearList}>
         Очистить
       </button>
       <button class="filter" type="button" onClick={props.swithcfilter}>
-        Фильтр
+        Активные 
       </button>
+      </div>
     </form>
   );
 }

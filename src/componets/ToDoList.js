@@ -37,7 +37,10 @@ function ToDoList() {
   const comleteTodo = (id) => {
     let updateTodos = todos.map((todo) => {
       if (todo.id === id) {
-        todo.status = !todo.status;
+        return {
+          ...todo,
+          status: !todo.status,
+        };
       }
       return todo;
     });
@@ -45,20 +48,26 @@ function ToDoList() {
     setTodos(updateTodos);
   };
 
+  const left = () => {
+    return todos.filter ((todo) => !todo.status).length
+  }
+
   return (
     <div className={filter ? "list-filter" : ""}>
-      <h1>Какие планы на сегодня?</h1>
+      <h1>ToDos</h1>
       <AddToDo
         onSubmit={addDo}
         setArrlist={setTodos}
         swithcfilter={swithcfilter}
       />
+      <div className="left">{left()} Осталось</div>
       <ToDo
         todos={todos}
         comleteTodo={comleteTodo}
         removeToDo={removeToDo}
         updateTodo={updateTodo}
       />
+      
     </div>
   );
 }
