@@ -26,23 +26,22 @@ function ToDo() {
     dispatch(removeToDoRedux(id));
   };
 
-  if (EditingId) {
-    return <EditToDo />;
-  }
+  const EditTemp = <EditToDo/>
+  const ViewTemp = (todo, index) =>( <div className={todo.status ? "todo-row complete" : "todo-row"} key={index}>
+  <div className="text" key={todo.id} onClick={() => comleteTodo(todo.id)}>
+    {todo.text}
+  </div>
+  <div className="icons">
+    <TiEdit onClick={() => setEdit(todo.id)} className="editIcon" />
+    <RiCloseCircleFill
+      onClick={() => removeToDo(todo.id)}
+      className="deletIcon"
+    />
+  </div>
+</div>)
 
-  return ToDos.map((todo, index) => (
-    <div className={todo.status ? "todo-row complete" : "todo-row"} key={index}>
-      <div className="text" key={todo.id} onClick={() => comleteTodo(todo.id)}>
-        {todo.text}
-      </div>
-      <div className="icons">
-        <TiEdit onClick={() => setEdit(todo.id)} className="editIcon" />
-        <RiCloseCircleFill
-          onClick={() => removeToDo(todo.id)}
-          className="deletIcon"
-        />
-      </div>
-    </div>
+  return ToDos.map((todo, index) => ( 
+    EditingId==todo.id ? EditTemp: ViewTemp (todo, index)
   ));
 }
 

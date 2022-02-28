@@ -26,7 +26,8 @@ function EditToDo() {
         type="text"
         placeholder="Что нужно сделать?"
         value={value}
-        className="input"
+        className="input" 
+        onBlur={handleSubmit}
         onChange={handleSetValue}
       />
       <button className="save" type="submit">
