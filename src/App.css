@@ -44,16 +44,17 @@ button:hover {
 
 .clear {
   background-color: #ea005e;
-  width: 80px;
+  width: 90px;
   margin-right: 25px;
   margin-top: 10px;
   border: none;
   padding: 10px 15px;
   color: white;
+  
 }
 
 .filter {
-  width: 80px;
+  width: 90px;
   background-color: #3f51b5;
   border: none;
   padding: 10px 15px;
@@ -93,6 +94,7 @@ button:hover {
   font-weight: bold;
   font-size: 20px;
 }
+
 
 .todo-row .text {
   flex: 1 1 auto;
