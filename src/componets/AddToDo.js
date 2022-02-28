@@ -2,8 +2,11 @@ import { useState } from "react";
 import { addToDoRedux, switchfilterRedux } from "../action/action";
 import { useDispatch } from "react-redux";
 import { clearListRedux } from "../action/action";
+import { selectFilter } from "../selector/selector";
+import { useSelector } from "react-redux";
 
 function AddToDo() {
+  const buttonFilter = useSelector(selectFilter)
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
@@ -41,8 +44,8 @@ function AddToDo() {
         <button class="clear" type="button" onClick={clearList}>
           Очистить
         </button>
-        <button class="filter" type="button" onClick={filter}>
-          Активные
+        <button class='filter' type="button" onClick={filter} >
+          {buttonFilter ? 'Активные': 'Все'}
         </button>
       </div>
     </form>
