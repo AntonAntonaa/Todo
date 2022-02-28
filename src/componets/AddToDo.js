@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { addToDoRedux } from "../action.js/action";
+import { addToDoRedux, switchfilterRedux } from "../action/action";
 import { useDispatch } from "react-redux";
+import { clearListRedux } from "../action/action";
 
-function AddToDo(props) {
+function AddToDo() {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
@@ -12,20 +13,17 @@ function AddToDo(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: value,
-      status: false,
-    });
+    dispatch(addToDoRedux(value));
     setValue("");
-    
   };
 
   const clearList = () => {
-    props.setArrlist([]);
-    dispatch(addToDoRedux([]))
+    dispatch(clearListRedux());
   };
+
+  const filter = () => {
+    dispatch(switchfilterRedux())
+  }
 
   return (
     <form className="addtodo" onSubmit={handleSubmit}>
@@ -40,12 +38,12 @@ function AddToDo(props) {
         Добавить
       </button>
       <div>
-      <button class="clear" type="button" onClick={clearList}>
-        Очистить
-      </button>
-      <button class="filter" type="button" onClick={props.swithcfilter}>
-        Активные 
-      </button>
+        <button class="clear" type="button" onClick={clearList}>
+          Очистить
+        </button>
+        <button class="filter" type="button" onClick={filter}>
+          Активные
+        </button>
       </div>
     </form>
   );

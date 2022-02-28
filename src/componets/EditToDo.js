@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selecEditToDo } from "./../selector/selector";
+import { useDispatch } from "react-redux";
+import { updateToDoRedux } from "../action/action";
 
-function EditToDo(props) {
-  const [value, setValue] = useState(props.edit.value);
-  
+function EditToDo() {
+  const edit = useSelector(selecEditToDo);
+  const [value, setValue] = useState(edit.text);
+  const dispatch = useDispatch();
 
   const handleSetValue = (event) => {
     setValue(event.target.value);
@@ -10,16 +15,10 @@ function EditToDo(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(updateToDoRedux(value, edit.id));
 
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: value,
-      status: false,
-    });
     setValue("");
   };
-
-  
 
   return (
     <form className="editToDo" onSubmit={handleSubmit}>
@@ -31,9 +30,8 @@ function EditToDo(props) {
         onChange={handleSetValue}
       />
       <button className="save" type="submit">
-        Изменить 
+        Изменить
       </button>
-  
     </form>
   );
 }
