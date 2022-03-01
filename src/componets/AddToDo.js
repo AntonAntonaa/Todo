@@ -41,10 +41,10 @@ function AddToDo() {
         Добавить
       </button>
       <div>
-        <button class="clear" type="button" onClick={clearList}>
+        <button className="clear" type="button" onClick={clearList}>
           Очистить
         </button>
-        <button class='filter' type="button" onClick={filter} >
+        <button className='filter' type="button" onClick={filter} >
           {buttonFilter ? 'Активные': 'Все'}
         </button>
       </div>

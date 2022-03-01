@@ -26,11 +26,11 @@ function EditToDo() {
         type="text"
         placeholder="Что нужно сделать?"
         value={value}
-        className="input" 
+        className="inputred" 
         onBlur={handleSubmit}
         onChange={handleSetValue}
       />
-      <button className="save" type="submit">
+      <button className="savered" type="submit">
         Изменить
       </button>
     </form>
