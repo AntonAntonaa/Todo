@@ -26,7 +26,7 @@ function EditToDo() {
         type="text"
         placeholder="Что нужно сделать?"
         value={value}
-        className="inputred" 
+        className="inputred"
         onBlur={handleSubmit}
         onChange={handleSetValue}
       />

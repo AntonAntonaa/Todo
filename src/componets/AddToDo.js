@@ -6,7 +6,7 @@ import { getSelectFilter } from "../selector/selector";
 import { useSelector } from "react-redux";
 
 function AddToDo() {
-  const buttonFilter = useSelector(getSelectFilter)
+  const buttonFilter = useSelector(getSelectFilter);
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
@@ -25,8 +25,8 @@ function AddToDo() {
   };
 
   const filter = () => {
-    dispatch(switchfilterRedux())
-  }
+    dispatch(switchfilterRedux());
+  };
 
   return (
     <form className="addtodo" onSubmit={handleSubmit}>
@@ -44,8 +44,8 @@ function AddToDo() {
         <button className="clear" type="button" onClick={clearList}>
           Очистить
         </button>
-        <button className='filter' type="button" onClick={filter} >
-          {buttonFilter ? 'Активные': 'Все'}
+        <button className="filter" type="button" onClick={filter}>
+          {buttonFilter ? "Активные" : "Все"}
         </button>
       </div>
     </form>
