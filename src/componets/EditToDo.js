@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getEdittingTodo } from "./../selector/selector";
 import { useDispatch } from "react-redux";
 import { updateToDoRedux } from "../action/action";
 
 function EditToDo() {
+  let inputRef = null;
   const edit = useSelector(getEdittingTodo);
   const [value, setValue] = useState(edit.text);
   const dispatch = useDispatch();
@@ -16,9 +17,12 @@ function EditToDo() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updateToDoRedux(value, edit.id));
-
     setValue("");
   };
+
+  useEffect(() => {
+    inputRef.focus();
+  });
 
   return (
     <form className="editToDo" onSubmit={handleSubmit}>
@@ -29,6 +33,9 @@ function EditToDo() {
         className="inputred"
         onBlur={handleSubmit}
         onChange={handleSetValue}
+        ref={(input) => {
+          inputRef = input;
+        }}
       />
       <button className="savered" type="submit">
         Изменить

@@ -13,7 +13,9 @@ function ToDoList() {
       <h1>ToDos</h1>
       <AddToDo />
       <div className="left">{left} Осталось</div>
-      <ToDo />
+      <div className="list">
+        <ToDo />
+      </div>
     </div>
   );
 }
