@@ -3,15 +3,15 @@ import { RiCloseCircleFill } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import EditToDo from "./EditToDo";
 import { useSelector } from "react-redux";
-import { selectToDo, selectEditingId } from "./../selector/selector";
+import { getTodo, getEdittingId } from "./../selector/selector";
 import { useDispatch } from "react-redux";
 import { comleteTodoRedux } from "../action/action";
 import { enableEditingRedux } from "./../action/action";
 import { removeToDoRedux } from "../action/action";
 
 function ToDo() {
-  const toDos = useSelector(selectToDo);
-  const editingId = useSelector(selectEditingId);
+  const toDos = useSelector(getTodo);
+  const editingId = useSelector(getEdittingId);
   const dispatch = useDispatch();
 
   const comleteTodo = (id) => {
@@ -26,9 +26,10 @@ function ToDo() {
     dispatch(removeToDoRedux(id));
   };
 
-  const editTemp = <EditToDo />;
-  const viewTemp = (todo, index) => (
-    <div className={todo.status ? "todo-row complete" : "todo-row"} key={index}>
+  
+  const editTemp = (todo, )=> (<EditToDo key={todo.id} />)
+  const viewTemp = (todo, ) => (
+    <div className={todo.status ? "todo-row complete" : "todo-row"} key={todo.id}>
       <div className="text" key={todo.id} onClick={() => comleteTodo(todo.id)}>
         {todo.text}
       </div>
@@ -42,8 +43,8 @@ function ToDo() {
     </div>
   );
 
-  return toDos.map((todo, index) =>
-    editingId == todo.id ? editTemp : viewTemp(todo, index)
+  return toDos.map((todo, ) =>
+    editingId == todo.id ? editTemp (todo, ) : viewTemp(todo, )
   );
 }
 

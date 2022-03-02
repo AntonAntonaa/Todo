@@ -1,20 +1,31 @@
-export const selectToDo = (state) => {
-  if (state.filter) {
-    return state.ToDo.filter((item) => !item.status);
+import { createSelector } from "reselect";
+
+export const getSelectToDo = (state) => state.ToDo;
+
+export const getSelectFilter = (state) => state.filter;
+
+export const getSelectEditingId = (state) => state.editingId;
+
+export const getTodo = createSelector(
+  [getSelectToDo, getSelectFilter],
+  (todos, filter) => {
+    if (filter) {
+      return todos.filter((item) => !item.status);
+    }
+    return todos;
   }
-  return state.ToDo;
-};
+);
 
-export const selectFilter = (state) => state.filter;
+export const getLeft = createSelector(getSelectToDo, (todos) => {
+  return todos.filter((todo) => !todo.status).length;
+});
 
-export const selectEditingId = (state) => state.editingId;
-
-export const selectLeft = (state) =>
-  state.ToDo.filter((todo) => !todo.status).length;
-
-export const selecEditToDo = (state) => {
-  if (state.editingId == null) {
-    return null;
+export const getEdittingTodo = createSelector(
+  [getSelectToDo, getSelectEditingId],
+  (todos, editingId) => {
+    if (editingId == null) {
+      return null;
+    }
+    return todos.find((item) => item.id === editingId);
   }
-  return state.ToDo.find((item) => item.id === state.editingId);
-};
+);

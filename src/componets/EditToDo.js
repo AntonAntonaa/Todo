@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { selecEditToDo } from "./../selector/selector";
+import { getEdittingTodo } from "./../selector/selector";
 import { useDispatch } from "react-redux";
 import { updateToDoRedux } from "../action/action";
 
 function EditToDo() {
-  const edit = useSelector(selecEditToDo);
+  const edit = useSelector(getEdittingTodo);
   const [value, setValue] = useState(edit.text);
   const dispatch = useDispatch();
 
