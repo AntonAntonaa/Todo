@@ -2,10 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import AddToDo from "./AddToDo";
 import ToDo from "./ToDo";
-import { getFilter, getLeft } from "./../selector/selector";
+import { getSelectFilter, getLeft } from "./../selector/selector";
 
 function ToDoList() {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(getSelectFilter);
   const left = useSelector(getLeft);
 
   return (

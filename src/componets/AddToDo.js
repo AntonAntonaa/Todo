@@ -2,11 +2,11 @@ import { useState } from "react";
 import { addToDoRedux, switchfilterRedux } from "../action/action";
 import { useDispatch } from "react-redux";
 import { clearListRedux } from "../action/action";
-import { getFilter } from "../selector/selector";
+import { getSelectFilter } from "../selector/selector";
 import { useSelector } from "react-redux";
 
 function AddToDo() {
-  const buttonFilter = useSelector(getFilter)
+  const buttonFilter = useSelector(getSelectFilter)
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
 
