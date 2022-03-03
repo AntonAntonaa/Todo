@@ -24,7 +24,7 @@ function ToDo(props) {
       <div className="check-circle" onClick={() => comleteTodo(todo.id)}>
         <AiOutlineCheck className="check" />
       </div>
-      <div className="text" onDoubleClick={() => setEdit(todo.id)}>
+      <div className="text" onClick={() => setEdit(todo.id)} >
         {todo.text}
       </div>
 

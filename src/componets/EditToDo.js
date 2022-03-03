@@ -28,7 +28,6 @@ function EditToDo() {
     <form className="editToDo" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Что нужно сделать?"
         value={value}
         className="inputred"
         onBlur={handleSubmit}
