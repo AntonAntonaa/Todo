@@ -16,7 +16,10 @@ function AddToDo() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(addToDoRedux(value));
+    if (value.trim() === ""){
+      return
+    }
+    dispatch(addToDoRedux(value.trim()));
     setValue("");
   };
 
