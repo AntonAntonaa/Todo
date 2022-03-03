@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { getEdittingTodo } from "./../selector/selector";
 import { useDispatch } from "react-redux";
 import { updateToDoRedux } from "../action/action";
+import { removeToDoRedux } from "../action/action";
 
 function EditToDo() {
   let inputRef = null;
@@ -17,10 +18,11 @@ function EditToDo() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value.trim() === "") {
-      return;
+      dispatch(removeToDoRedux(edit.id));
+    } else {
+      dispatch(updateToDoRedux(value.trim(), edit.id));
+      setValue("");
     }
-    dispatch(updateToDoRedux(value.trim(), edit.id));
-    setValue("");
   };
 
   useEffect(() => {
