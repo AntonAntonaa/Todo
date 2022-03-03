@@ -1,6 +1,6 @@
 export const initialState = {
   // глобальное хранилище редакса
-  ToDo: [],
+  toDo: [],
   filter: false,
   editingId: null,
 };
@@ -12,15 +12,15 @@ export const Reducers = (state = initialState, action) => {
     case "ADD_TODO":
       return {
         ...state,
-        ToDo: [
-          ...state.ToDo,
+        toDo: [
+          ...state.toDo,
           { id: Date.now(), text: action.todoText, status: false },
         ],
       };
     case "UPDATE_TODO":
       return {
         ...state,
-        ToDo: state.ToDo.map((item) =>
+        toDo: state.toDo.map((item) =>
           item.id === action.id
             ? { id: item.id, status: item.status, text: action.text }
             : item
@@ -30,12 +30,12 @@ export const Reducers = (state = initialState, action) => {
     case "REMOVE_TODO":
       return {
         ...state,
-        ToDo: state.ToDo.filter((item) => item.id !== action.id),
+        toDo: state.toDo.filter((item) => item.id !== action.id),
       };
     case "COMLETE_TODO":
       return {
         ...state,
-        ToDo: state.ToDo.map((item) =>
+        toDo: state.toDo.map((item) =>
           item.id === action.id
             ? { id: item.id, status: !item.status, text: item.text }
             : item
@@ -44,7 +44,7 @@ export const Reducers = (state = initialState, action) => {
     case "CLEAR_LIST":
       return {
         ...state,
-        ToDo: [],
+        toDo: [],
       };
     case "SWITCH_FILTER":
       return {

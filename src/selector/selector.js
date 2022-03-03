@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-export const getSelectToDo = (state) => state.ToDo;
+export const getSelectToDo = (state) => state.toDo;
 
 export const getSelectFilter = (state) => state.filter;
 
